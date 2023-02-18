@@ -11,7 +11,7 @@ export function CharactersList({data} : Props) {
   return (
     <div className="flex flex-wrap justify-center mt-8">
         {data.map((elem) => (
-          <article key={elem.id} className="bg-primary  text-white m-2 h-60   w-[500px] rounded-2xl flex">
+          <article key={elem.id} className="bg-primary  text-white mt-4 mx-0 h-60 sm:w-[500px] sm:m-2 w-[330px] rounded-2xl flex ">
             <div className="flex flex-[3_1_0%] w-full rounded-2xl">
               <Image
                 src={elem.image}
