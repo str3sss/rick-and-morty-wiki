@@ -10,7 +10,7 @@ export interface CharacterFilter {
 export interface Character {
   id: number;
   name: string;
-  status: 'dead' | 'alive' | 'unknown';
+  status: 'Dead' | 'Alive' | 'unknown';
   species: string;
   type: string;
   gender: 'female' | 'male' | 'genderless' | 'unknown';
