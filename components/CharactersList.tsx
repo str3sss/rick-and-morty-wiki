@@ -20,7 +20,7 @@ export function CharactersList({ data }: Props) {
   return (
     <div className="flex flex-wrap justify-center mt-8">
       {data.map((elem) => (
-        <article key={elem.id} className="bg-primary  text-white mt-4 mx-0 h-60 sm:w-[500px] sm:m-2 w-[330px] rounded-2xl flex ">
+        <article key={elem.id} className="bg-primary  text-white mt-4 mx-0 h-60 sm:w-[500px] sm:m-2 w-11/12 rounded-2xl flex ">
           <div className="flex flex-[3_1_0%] w-full rounded-2xl">
             <Image
               src={elem.image}
@@ -34,11 +34,11 @@ export function CharactersList({ data }: Props) {
             <Link href={elem.url}>
               <p className="font-semibold text-xl pb-6 px-6">{elem.name}</p>
             </Link>
-            <span className="px-6 flex">
+            <span className="px-6">
               Status: {elem.status}
-              <span className="flex h-3 w-3 relative top-1.5 left-1">
-                <span className={statusStyle(elem.status, 'animate-ping absolute inline-flex h-3 w-3 rounded-full')}></span>
-                <span className={statusStyle(elem.status, 'relative inline-flex rounded-full h-3 w-3 opacity-40')}></span>
+              <span className="h-3 w-3 left-2 relative">
+                <span className={statusStyle(elem.status, 'animate-ping inline-flex absolute top-1 h-3 w-3 rounded-full')}></span>
+                <span className={statusStyle(elem.status, 'absolute top-1 inline-flex rounded-full h-3 w-3 opacity-40')}></span>
               </span>
             </span>
             <p className="pl-6">Gender: {elem.gender}</p>
