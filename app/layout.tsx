@@ -2,6 +2,7 @@ import './globals.scss'
 import { Montserrat } from '@next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { AnalyticsWrapper } from '@/components/Analytics'
 
 
 const font = Montserrat({ subsets: ['latin', 'cyrillic'] })
@@ -18,6 +19,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <AnalyticsWrapper />
       </body>
     </html>
   )

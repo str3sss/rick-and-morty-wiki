@@ -8,7 +8,7 @@ type Props = {
   data: Character[];
 };
 
-export function CharactersList({ data }: Props) {
+export function CharactersList({ data }: Props) { 
   const statusStyle = (status: 'Dead' | 'Alive' | 'unknown', style: string) =>
     clsx(
       style,
