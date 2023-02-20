@@ -56,6 +56,9 @@ body {
   @apply flex flex-col justify-around items-center py-24 px-4 min-h-screen max-w-full; 
 }
 
+.error__message {
+  @apply text-red 
+}
 
 .footer {
   background-color: $bg-primary;

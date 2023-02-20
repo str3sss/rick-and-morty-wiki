@@ -1,12 +1,14 @@
 import Form from '@/components/Form';
-import React from 'react'
+import SwipeMenu from '@/components/SwipeMenu';
 
 function Survay() {
   return (
-    <main className="main bg-pink">
-      <Form />
-    </main>
+    <SwipeMenu status>
+      <main className="main bg-pink -z-2  0">
+        <Form />
+      </main>
+    </SwipeMenu>
   );
 }
 
-export default Survay
+export default Survay;
