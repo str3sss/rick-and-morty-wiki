@@ -71,6 +71,17 @@ body {
   color: $font-white;
 }
 
+.filter__card {
+  border-width: 10px;
+  border-style: solid;
+  border-image: linear-gradient(to top left, $bg-primary, $bg-green) 1;
+}
+
+.tooltip {
+  @apply fixed w-auto p-2 m-2 min-w-max top-11
+  rounded-md shadow-md text-white bg-primary
+  text-xs font-bold transition-all duration-100 scale-0 origin-top-left -translate-x-4
+}
 
 a {
   color: inherit;
