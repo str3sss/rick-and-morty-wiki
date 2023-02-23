@@ -6,7 +6,9 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="justify-around w-1/2 flex flex-1">
-        <div className="flex justify-center items-center font-light">Copyright 2023 by str3sss</div>
+        <div className="flex justify-center items-center font-light">Copyright
+        &#169;
+        2023 by str3sss</div>
         <div className="gap-1 flex flex-col items-center">
           <Link href={'https://t.me/str3s55'} className="hover:text-blue flex gap-2 items-center">
             <FontAwesomeIcon icon={faTelegram} height="18px" />
