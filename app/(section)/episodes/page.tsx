@@ -1,6 +1,11 @@
 import { EpisodesList } from '@/components/EpisodesList';
 import { EpisodeRequest } from '@/types/Episode';
-import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Episodes',
+  description: 'Rick and Morty episodes',
+};
 
 async function getEpisodes() {
   const res = await fetch('https://rickandmortyapi.com/api/episode');

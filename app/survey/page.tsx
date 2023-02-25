@@ -1,5 +1,11 @@
 import Form from '@/components/Form';
 import SwipeMenu from '@/components/SwipeMenu';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Survey',
+  description: 'Rick and Morty surveys',
+};
 
 function Survay() {
   return (

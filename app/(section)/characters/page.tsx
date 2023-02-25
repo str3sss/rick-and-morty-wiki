@@ -1,7 +1,11 @@
 import { CharactersList } from '@/components/CharactersList';
 import { CharacterFilter, CharacterRequest, FilterCharacterRequest } from '@/types/Character';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Characters',
+  description: 'Rick and Morty characters',
+};
 
 const url = 'https://rickandmortyapi.com/api/character/?'
 const filters: CharacterFilter = {
@@ -24,11 +28,10 @@ async function getCharactersWithFilter(filter: CharacterFilter) {
   if (!res.ok) {
     throw new Error('Failed');
   } 
-
   return res.json();
 }
 
-async function Characters() {
+export default async function Characters() {
   const filter = null
   const data: CharacterRequest = await getCharacters();
   const dataFiltered: FilterCharacterRequest = await getCharactersWithFilter(filters)
@@ -43,6 +46,3 @@ async function Characters() {
     </main>
   );
 }
-
-
-export default Characters

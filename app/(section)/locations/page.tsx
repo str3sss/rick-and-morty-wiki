@@ -1,13 +1,18 @@
 import { LocationsList } from '@/components/LocationsList';
 import { LocationRequest } from '@/types/Location';
+import { Metadata } from 'next';
 import React from 'react'
+
+export const metadata: Metadata = {
+  title: 'Locations',
+  description: 'Rick and Morty locations',
+};
 
 async function getLocations() {
   const res = await fetch('https://rickandmortyapi.com/api/location');
   if (!res.ok) {
     throw new Error('Failed');
   }
-
   return res.json();
 }
 async function Locations() {
