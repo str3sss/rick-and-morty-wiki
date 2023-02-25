@@ -4,7 +4,10 @@ const config: CodegenConfig = {
   overwrite: true,
   schema: [
     {
-      [process.env.GRAPHQL_URL!]: {
+      [process.env.NEXT_PUBLIC_GRAPHQL_URL!]: {
+        headers: {
+          // If you have an admin secret set
+        },
       },
     },
   ],

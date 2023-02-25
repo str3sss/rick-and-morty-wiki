@@ -1,4 +1,4 @@
-export query GetCharacters($page: Int) {
+query GetCharacters($page: Int) {
   characters(page: $page) {
     info {
       count
