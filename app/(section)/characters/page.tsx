@@ -1,5 +1,7 @@
 import { CharactersList } from '@/components/CharactersList';
-import { CharacterFilter, CharacterRequest, FilterCharacterRequest } from '@/types/Character';
+import {  GetCharactersDocument, GetCharactersQuery } from '@/lib/gql/graphql';
+import { gqlClient } from '@/lib/service/client';
+import { CharacterFilter, FilterCharacterRequest } from '@/types/Character';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -15,12 +17,8 @@ const filters: CharacterFilter = {
 }
 
 async function getCharacters() {
-  const res = await fetch(url);
-  if (!res.ok) {
-    throw new Error('Failed');
-  }
-
-  return res.json();
+  const { characters } =  await gqlClient.request(GetCharactersDocument, { page: 1 });
+  return characters!
 }
 
 async function getCharactersWithFilter(filter: CharacterFilter) {
@@ -33,9 +31,10 @@ async function getCharactersWithFilter(filter: CharacterFilter) {
 
 export default async function Characters() {
   const filter = null
-  const data: CharacterRequest = await getCharacters();
+  const data = await getCharacters();
   const dataFiltered: FilterCharacterRequest = await getCharactersWithFilter(filters)
-  const { info, results } = data;
+  const info = data.info!;
+  const results = data.results as []
   return (
     <main className="main bg-blue ">
       <div className="flex flex-col h-fit text-center"> 
