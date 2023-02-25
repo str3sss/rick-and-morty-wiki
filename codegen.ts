@@ -2,15 +2,7 @@ import type { CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
   overwrite: true,
-  schema: [
-    {
-      [process.env.NEXT_PUBLIC_GRAPHQL_URL!]: {
-        headers: {
-          // If you have an admin secret set
-        },
-      },
-    },
-  ],
+  schema: 'https://rickandmortyapi.com/graphql',
   config: {
     skipTypename: true,
     enumsAsTypes: true,
