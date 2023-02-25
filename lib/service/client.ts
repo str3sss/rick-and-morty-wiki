@@ -1,6 +1,6 @@
 import { GraphQLClient } from "graphql-request";
 
 export const gqlClient = new GraphQLClient(
-  process.env.GRAPHQL_URL!,
+  process.env.NEXT_PUBLIC_GRAPHQL_URL!,
   { fetch }
 );
