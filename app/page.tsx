@@ -1,8 +1,5 @@
 import type { Metadata } from 'next';
-import { Montserrat } from '@next/font/google';
 import TypewriterComponent from '@/components/Typewriter';
-
-const inter = Montserrat({ subsets: ['latin'] });
 
 export default function Home() {
   return (

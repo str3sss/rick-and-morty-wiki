@@ -1,5 +1,5 @@
 import './globals.scss'
-import { Montserrat } from '@next/font/google'
+import { Montserrat } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { AnalyticsWrapper } from '@/components/Analytics'
@@ -21,7 +21,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className='scroll-smooth'>
-      {/* <head /> */}
       <body className={font.className}>
         <Header />
         {children}
