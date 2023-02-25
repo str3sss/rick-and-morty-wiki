@@ -1,6 +1,6 @@
 import { GraphQLClient } from "graphql-request";
 
 export const gqlClient = new GraphQLClient(
-  'https://rickandmortyapi.com/graphql',
+  process.env.NEXT_PUBLIC_GRAPHQL_URL!,
   { fetch }
 );
