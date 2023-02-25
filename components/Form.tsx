@@ -3,13 +3,14 @@
 import { FieldErrors, SubmitHandler, useForm } from 'react-hook-form';
 import { FormSchemaType, FormSchema } from '../types/Form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { isValid } from 'zod';
 
 function Form() {
   const {
     register,
     watch,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isDirty, isValid },
   } = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
     mode:'all'
@@ -20,9 +21,9 @@ function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2 p-4 min-w-[300px] bg-white">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center gap-2 p-4 min-w-[300px] max-w-[600px] pt-16 pb-12 w-4/5 bg-gradient-to-tr rounded-md from-white via-fuchsia-100 to-white">
       <input
-        className="bg-primary rounded-lg h-12 pl-4 text-white"
+        className="bg-primary rounded-lg h-12 pl-4 min-w-[250px] text-white"
         type="text"
         {...register('firstname')}
         disabled={isSubmitting}
@@ -30,7 +31,7 @@ function Form() {
       />
       {errors.firstname && <p className="error__message">{errors.firstname.message}</p>}
       <input
-        className="bg-primary rounded-lg h-12 pl-4 text-white"
+        className="bg-primary rounded-lg h-12 pl-4 min-w-[250px]  text-white"
         type="text"
         {...register('lastname')}
         disabled={isSubmitting}
@@ -38,7 +39,7 @@ function Form() {
       />
       {errors.lastname && <p className="error__message">{errors.lastname.message}</p>}
       <input
-        className="bg-primary  rounded-lg h-12 pl-4 text-white"
+        className="bg-primary  rounded-lg h-12 pl-4 min-w-[250px]  text-white"
         type="text"
         {...register('age')}
         disabled={isSubmitting}
@@ -46,7 +47,7 @@ function Form() {
       />
       {errors.age && <p className="error__message">{errors.age.message}</p>}
       <input
-        className="bg-primary rounded-lg h-12 pl-4 text-white"
+        className="bg-primary rounded-lg h-12 pl-4 min-w-[250px]  text-white"
         type="email"
         aria-invalid={errors.email ? "true" : "false"}
         {...register('email')}
@@ -54,7 +55,7 @@ function Form() {
         placeholder="email"
       />
       {errors.email && <p className="error__message">{errors.email.message}</p>}
-      <button type="submit" className="bg-pink mx-auto rounded-lg px-4 py-2" disabled={isSubmitting}>
+      <button type="submit" className="bg-primary text-white mx-auto rounded-lg px-4 py-2 mt-2 disabled:bg-gray disabled:bg-opacity-40" disabled={!isDirty || !isValid}>
         Send
       </button>
     </form>
