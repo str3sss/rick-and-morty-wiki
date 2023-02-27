@@ -1,5 +1,7 @@
-query GetCharacters($page: Int) {
-  characters(page: $page) {
+import { graphql } from "../gql";
+
+export const GET_CHARACTERS = graphql(`
+  characters(page: $Int) {
     info {
       count
       pages
@@ -11,13 +13,13 @@ query GetCharacters($page: Int) {
       status
       species
       type
-      gender
       origin {
         name
       }
+      gender
       image
       created
       __typename
     }
   }
-}
+`)

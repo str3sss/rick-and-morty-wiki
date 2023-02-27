@@ -43,6 +43,7 @@ export function CharactersList({ data }: Props) {
               </span>
               <p>Gender: {elem.gender}</p>
               <p>Species: {elem.species}</p>
+              <p>Origin: {elem.origin?.name}</p>
             </div>
           </div>
         </article>

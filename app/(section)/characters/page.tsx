@@ -1,7 +1,10 @@
 import { CharactersList } from '@/components/CharactersList';
+import { graphql } from '@/lib/gql';
 import {  GetCharactersDocument, GetCharactersQuery } from '@/lib/gql/graphql';
 import { gqlClient } from '@/lib/service/client';
+// import { GET_CHARACTERS } from '@/lib/service/GetCharacters';
 import { CharacterFilter, FilterCharacterRequest } from '@/types/Character';
+import request, { gql } from 'graphql-request';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -16,8 +19,8 @@ const filters: CharacterFilter = {
   gender: 'female'
 }
 
-async function getCharacters() {
-  const { characters } =  await gqlClient.request(GetCharactersDocument, { page: 1 });
+async function getCharacters(page = 1) {
+  const { characters } = await gqlClient.request(GetCharactersDocument, {page: page})
   return characters!
 }
 
@@ -34,14 +37,14 @@ export default async function Characters() {
   const data = await getCharacters();
   const dataFiltered: FilterCharacterRequest = await getCharactersWithFilter(filters)
   const info = data.info!;
-  const results = data.results as []
+  const results = data.results!
   return (
     <main className="main bg-blue ">
       <div className="flex flex-col h-fit text-center"> 
         <h1>{info.count} Characters</h1>
         <h1>{info.pages} Pages</h1>
       </div>
-      <CharactersList data={results} />
+      <CharactersList data={results as []} />
     </main>
   );
 }

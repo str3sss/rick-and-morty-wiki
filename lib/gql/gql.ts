@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "query GetCharacters($page: Int) {\n  characters(page: $page) {\n    info {\n      count\n      pages\n      next\n    }\n    results {\n      id\n      name\n      status\n      species\n      type\n      gender\n      image\n      created\n      __typename\n    }\n  }\n}": types.GetCharactersDocument,
+    "query GetCharacters($page: Int) {\n  characters(page: $page) {\n    info {\n      count\n      pages\n      next\n    }\n    results {\n      id\n      name\n      status\n      species\n      type\n      gender\n      origin {\n        name\n      }\n      image\n      created\n      __typename\n    }\n  }\n}": types.GetCharactersDocument,
 };
 
 /**
@@ -33,7 +33,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query GetCharacters($page: Int) {\n  characters(page: $page) {\n    info {\n      count\n      pages\n      next\n    }\n    results {\n      id\n      name\n      status\n      species\n      type\n      gender\n      image\n      created\n      __typename\n    }\n  }\n}"): (typeof documents)["query GetCharacters($page: Int) {\n  characters(page: $page) {\n    info {\n      count\n      pages\n      next\n    }\n    results {\n      id\n      name\n      status\n      species\n      type\n      gender\n      image\n      created\n      __typename\n    }\n  }\n}"];
+export function graphql(source: "query GetCharacters($page: Int) {\n  characters(page: $page) {\n    info {\n      count\n      pages\n      next\n    }\n    results {\n      id\n      name\n      status\n      species\n      type\n      gender\n      origin {\n        name\n      }\n      image\n      created\n      __typename\n    }\n  }\n}"): (typeof documents)["query GetCharacters($page: Int) {\n  characters(page: $page) {\n    info {\n      count\n      pages\n      next\n    }\n    results {\n      id\n      name\n      status\n      species\n      type\n      gender\n      origin {\n        name\n      }\n      image\n      created\n      __typename\n    }\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

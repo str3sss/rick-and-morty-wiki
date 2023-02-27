@@ -18,7 +18,7 @@ const config: CodegenConfig = {
       numeric: "number",
     },
   },
-  documents: "lib/service/queries.graphql",
+  documents: "lib/service/*",
   generates: {
     "lib/gql/": {
       preset: "client",
