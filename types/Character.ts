@@ -1,19 +1,21 @@
 import { Info } from './Info';
 
+export type CharacterStatus = 'Dead' | 'Alive' | 'unknown'
+export type CharacterGender = 'female' | 'male' | 'genderless' | 'unknown'
 export interface CharacterFilter {
   name?: string;
-  status?: 'alive' | 'dead' | 'unknown';
+  status?: CharacterStatus;
   type?: string;
-  gender?: 'female' | 'male' | 'genderless' | 'unknown';
+  gender?: CharacterGender;
 }
 
 export interface Character {
   id: number;
   name: string;
-  status: 'Dead' | 'Alive' | 'unknown';
+  status: CharacterStatus;
   species: string;
   type: string;
-  gender: 'female' | 'male' | 'genderless' | 'unknown';
+  gender: CharacterGender;
   origin: {
     name: string;
     url: string;

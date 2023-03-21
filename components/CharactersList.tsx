@@ -1,4 +1,4 @@
-import { Character } from '@/types/Character';
+import { Character, CharacterStatus } from '@/types/Character';
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,13 +9,13 @@ type Props = {
 };
 
 export function CharactersList({ data }: Props) {
-  const statusStyle = (status: 'Dead' | 'Alive' | 'unknown', style: string) =>
+  const statusStyle = (status: CharacterStatus, style: string) =>
     clsx(style, status == 'unknown' && 'bg-gray', status === 'Dead' && 'bg-red', status === 'Alive' && 'bg-green');
 
   return (
     <div className="flex flex-wrap justify-center mt-8">
       {data.map((elem) => (
-        <article key={elem.id} className="bg-primary  text-white mt-4 mx-0 h-60 sm:w-[500px] sm:m-2 w-11/12 rounded-2xl flex ">
+        <article key={elem.id} className="bg-primary  text-white mt-4 mx-0 h-60 sm:w-[500px] sm:m-2 rounded-2xl flex ">
           <div className="flex flex-row w-full rounded-2xl">
             <div className="basis-1/2">
               <Image
@@ -32,7 +32,7 @@ export function CharactersList({ data }: Props) {
               </Link>
               <span>
                 Status: {elem.status}
-                <span className="h-3 w-3 left-2 relative">
+                <span className="h-3 w-3 left-2 relative mr-2">
                   <span
                     className={statusStyle(elem.status, 'animate-ping inline-flex absolute top-1 h-3 w-3 rounded-full')}
                   ></span>
