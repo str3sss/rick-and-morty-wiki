@@ -21,13 +21,14 @@ function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center gap-2 p-4 min-w-[300px] max-w-[600px] pt-16 pb-12 w-4/5 bg-gradient-to-tr rounded-md from-white via-fuchsia-100 to-white">
+    <form onSubmit={handleSubmit(onSubmit)} className=" border-2 border-black flex flex-col items-center gap-2 p-4 min-w-[300px] max-w-[600px] pt-16 pb-12 w-4/5 bg-gradient-to-tr rounded-md from-white via-fuchsia-100 to-white">
       <input
-        className="bg-primary rounded-lg h-12 pl-4 min-w-[250px] text-white"
+        className="bg-primary rounded-lg h-12 pl-4 min-w-[250px] text-white focus:text-opacity-50"
         type="text"
         {...register('firstname')}
         disabled={isSubmitting}
         placeholder="firstname"
+        autoComplete='off'
       />
       {errors.firstname && <p className="error__message">{errors.firstname.message}</p>}
       <input
@@ -36,6 +37,7 @@ function Form() {
         {...register('lastname')}
         disabled={isSubmitting}
         placeholder="lastname"
+        autoComplete='off'
       />
       {errors.lastname && <p className="error__message">{errors.lastname.message}</p>}
       <input
@@ -53,6 +55,7 @@ function Form() {
         {...register('email')}
         disabled={isSubmitting}
         placeholder="email"
+        autoComplete='off'
       />
       {errors.email && <p className="error__message">{errors.email.message}</p>}
       <button type="submit" className="bg-primary text-white mx-auto rounded-lg px-4 py-2 mt-2 disabled:bg-gray disabled:bg-opacity-40" disabled={!isDirty || !isValid}>

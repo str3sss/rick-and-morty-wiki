@@ -18,7 +18,7 @@ function Footer() {
             <FontAwesomeIcon icon={faGithub} height="18px" />
             <span>Github</span>
           </Link>
-          <Link href={'https://github.com/str3sss'} className="hover:text-pink flex gap-2 items-center">
+          <Link href={'https://discordapp.com/users/438669752777310219'} className="hover:text-pink flex gap-2 items-center">
             <FontAwesomeIcon icon={faDiscord} height="18px" />
             <span>Discord</span>
           </Link>
